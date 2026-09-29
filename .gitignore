@@ -1,0 +1,33 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local checkpoints and downloaded model artifacts.
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+models/
+checkpoints/
+
+# Private benchmark data and media.
+videos/
+dataset/*.json
+dataset/*.jsonl
+dataset/*.mp4
+
+# Runtime state and generated artifacts.
+runs/
+logs/
+cache/
+dialog_dump_log/
+output/
+*.log
+
+# Local configuration and editor files.
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/

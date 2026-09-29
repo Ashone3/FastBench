@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export MODEL_FAMILY=videochat3_4b
+exec bash "${SCRIPT_DIR}/serve_model.sh" "$@"
