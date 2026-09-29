@@ -31,17 +31,38 @@ Flash Attention 2 can improve throughput for supported CUDA and PyTorch combinat
 
 ## Data layout
 
-Videos and annotations are intentionally not bundled in this source release. Follow [dataset/README.md](dataset/README.md) and place the annotation file at:
+The release branch does not track benchmark annotations or videos. The evaluator resolves the annotation file relative to this repository, and each `video_path` in the annotation is resolved relative to `VIDEO_ROOT`.
+
+For a local smoke test with the 300-sample annotation file used during development, copy the files into this layout:
 
 ```text
 .
-├── dataset/
-│   └── proactive_perception_annotations.json
-└── videos/
-    └── ...
+└── dataset/
+    ├── proactive_perception_annotations.json
+    └── qa_video_20260921_2152_pure_en/
+        ├── sample-0/
+        │   └── original_cut.mp4
+        ├── sample-1/
+        │   └── original_cut1.mp4
+        └── ...
 ```
 
-Use `--video-root` or `VIDEO_ROOT` when the videos are stored elsewhere.
+The local copy can be prepared with:
+
+```bash
+cp /path/to/proactive_perception_test_benchmark_annotations_20260923_0236_pure_en_classified_with_domains_merged_instant_primary.json \
+   dataset/proactive_perception_annotations.json
+cp -a /path/to/dataset/qa_video_20260921_2152_pure_en dataset/
+```
+
+Then run an inference-only sample from the repository root:
+
+```bash
+VIDEO_ROOT="$PWD" \
+bash scripts/eval_qwen3_vl_8b.sh --num-samples 1 --skip-scoring
+```
+
+Use `--video-root` or `VIDEO_ROOT` when the videos are stored elsewhere. See [dataset/README.md](dataset/README.md) for the annotation contract.
 
 ## Start a local model server
 

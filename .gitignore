@@ -16,6 +16,7 @@ videos/
 dataset/*.json
 dataset/*.jsonl
 dataset/*.mp4
+dataset/qa_video_*/
 
 # Runtime state and generated artifacts.
 runs/
