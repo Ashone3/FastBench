@@ -1,0 +1,244 @@
+default_benchmarks:
+  - phostream
+default_prompt: streaming
+
+# Optional defaults for relative dataset paths.
+# Can be overridden by CLI: --video-root and --stream-addr-root
+video_root: ""
+stream_addr_root: ""
+
+benchmarks:
+  phostream:
+    path: dataset/proactive_perception_annotations.json
+
+prompts:
+  streaming:
+    silent_word: "silent"
+    system_prompt: |
+      You are an AI assistant for real-time video stream question answering. At any moment, there is at most one active question.
+
+      Answer the active question as soon as the current video context—based on all frames observed so far and prior dialogue—contains enough information to support a complete and factually grounded answer.
+
+      Stream input semantics:
+      - New visual input is appended incrementally in chunks.
+      - Each newly appended chunk covers at most 1 second of new video time.
+      - The number of frames in a newly appended chunk can vary; do not assume a fixed frame count per update.
+      - You can proactively request a temporary higher-frame-rate view when the current sampling rate may miss fine-grained temporal details.
+
+      Follow these output rules exactly:
+
+      - Focus control:
+        1) Proactively monitor the video even when there is no active question. Output the exact token Focus_Start whenever the current scene appears likely to contain an upcoming highlight, rapid motion, a brief event, a transition, an interaction, object manipulation, a subtle gesture, or any detail that could benefit from fine-grained temporal perception. This preserves richer evidence for possible future backward-looking or instant questions.
+        2) Also output Focus_Start when an active question requires closer temporal observation before it can be answered reliably. High-frame-rate sampling starts with the next video chunk.
+        3) Use a low threshold for starting focus. When uncertain whether higher frame rate may help, prefer Focus_Start; unnecessary focus is acceptable.
+        4) While high-frame-rate sampling is active, inspect each new chunk and output the exact token Focus_End once the interesting/high-motion/fine-grained interval has clearly ended and the scene has settled. Normal sampling resumes with the next video chunk. Until then, keep focus active by answering the active question if possible, or outputting Silent.
+        5) Focus_Start and Focus_End must each be the entire response. Do not combine either token with an answer, Silent, punctuation, or explanation.
+        6) Do not output Focus_Start if high-frame-rate sampling is already active. Do not output Focus_End unless it is active.
+
+      - For multiple-choice questions (those that explicitly list options such as A, B, C, D):
+        Respond only with the correct option letter (e.g., "A"). Do not add punctuation, explanation, or extra text.
+
+      - For all other questions:
+        Provide a complete answer using only information available in the stream up to this point.
+        If the answer can be inferred with reasonable confidence, answer directly.
+
+      - Output the exact word Silent only in one of these cases:
+        1) There is no active question and neither Focus_Start nor Focus_End is appropriate.
+        2) User explicitly asks to delay answering.
+        3) Question unambiguously requires future content and no part can be determined yet.
+
+models:
+  qwen3_omni:
+    # backend=hf means "use HF OpenAI-compatible server"
+    # start it via: python hf_openai_server.py --model-path ...
+    backend: hf
+    api_base: ${STREAMEVAL_QWEN3_OMNI_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_QWEN3_OMNI_API_KEY:EMPTY}
+    model: ${STREAMEVAL_QWEN3_OMNI_MODEL:Qwen/Qwen3-Omni-30B-A3B-Instruct}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  qwen3_vl:
+    backend: hf
+    api_base: ${STREAMEVAL_QWEN3_VL_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_QWEN3_VL_API_KEY:EMPTY}
+    model: ${STREAMEVAL_QWEN3_VL_MODEL:Qwen/Qwen3-VL-8B-Instruct}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  videochat3_4b:
+    backend: hf
+    api_base: ${STREAMEVAL_VIDEOCHAT3_4B_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_VIDEOCHAT3_4B_API_KEY:EMPTY}
+    model: ${STREAMEVAL_VIDEOCHAT3_4B_MODEL:MCG-NJU/VideoChat3-4B}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  moss_vl_realtime:
+    backend: hf
+    api_base: ${STREAMEVAL_MOSS_VL_REALTIME_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_MOSS_VL_REALTIME_API_KEY:EMPTY}
+    model: ${STREAMEVAL_MOSS_VL_REALTIME_MODEL:MOSS-VL-Realtime}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  joyai_vl_interaction:
+    backend: hf
+    api_base: ${STREAMEVAL_JOYAI_VL_INTERACTION_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_JOYAI_VL_INTERACTION_API_KEY:EMPTY}
+    model: ${STREAMEVAL_JOYAI_VL_INTERACTION_MODEL:JoyAI-VL-Interaction}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  aura:
+    backend: hf
+    api_base: ${STREAMEVAL_AURA_API_BASE:http://127.0.0.1:8000/v1}
+    api_key: ${STREAMEVAL_AURA_API_KEY:EMPTY}
+    model: ${STREAMEVAL_AURA_MODEL:Aura}
+    video_transport: path
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  gemini_3_pro:
+    backend: gemini_native
+    api_base: ${STREAMEVAL_GEMINI_3_API_BASE:https://generativelanguage.googleapis.com}
+    api_key: ${STREAMEVAL_GEMINI_3_API_KEY:EMPTY}
+    model: ${STREAMEVAL_GEMINI_3_MODEL:gemini-3-pro-preview}
+    max_video_size_mb: 30
+    video_metadata_fps: 1.0
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+  zhizengzeng_chat:
+    # Assume Zhizengzeng provides OpenAI-compatible chat/completions API.
+    # If your service uses a different path/protocol, adjust backend/request mapping in run_stream_eval.py.
+    backend: zhizengzeng
+    api_base: ${STREAMEVAL_ZHIZENGZENG_API_BASE:https://api.zhizengzeng.com/v1}
+    api_key: ${STREAMEVAL_ZHIZENGZENG_API_KEY:EMPTY}
+    model: ${STREAMEVAL_ZHIZENGZENG_MODEL:your-zhizengzeng-model}
+    video_transport: image_frames_data_url
+    video_frame_count: 2
+    video_frame_extract_fps: 2.0
+    max_video_size_mb: 30
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: ${STREAMEVAL_ZHIZENGZENG_TIMEOUT:600}
+    max_retries: ${STREAMEVAL_ZHIZENGZENG_MAX_RETRIES:3}
+
+  openrouter_chat:
+    # OpenRouter is OpenAI-compatible for chat/completions.
+    backend: openrouter
+    api_base: ${STREAMEVAL_OPENROUTER_API_BASE:https://openrouter.ai/api/v1}
+    api_key: ${STREAMEVAL_OPENROUTER_API_KEY:EMPTY}
+    model: ${STREAMEVAL_OPENROUTER_MODEL:openai/gpt-4o-mini}
+    video_transport: image_frames_data_url
+    video_frame_count: 2
+    video_frame_extract_fps: 2.0
+    max_video_size_mb: 30
+    max_video_length_in_seconds: 60.2
+    max_new_tokens: 1024
+    temperature: 0.0
+    timeout: 600
+    max_retries: 3
+
+judger:
+  # The judger request format is OpenAI-compatible. You can point api_base/api_key/model
+  # to OpenRouter or Zhizengzeng endpoints without code changes.
+  backend: ${STREAMEVAL_JUDGER_BACKEND:openai_compatible}
+  api_base: ${STREAMEVAL_JUDGER_API_BASE:http://127.0.0.1:8000/v1}
+  api_key: ${STREAMEVAL_JUDGER_API_KEY:EMPTY}
+  model: ${STREAMEVAL_JUDGER_MODEL:Qwen/Qwen3-32B-Instruct}
+  max_new_tokens: 256
+  temperature: 0.0
+  timeout: 120
+  max_retries: 3
+  prompt_template: |
+    You are an expert evaluator judging whether a model's answer provides a reasonable and factually plausible explanation that directly addresses the question, based on the reference answer.
+
+    Evaluation Guideline:
+    - Focus on whether the model gives a coherent reason that logically explains what the question asks.
+    - The answer does not need to reproduce all details from the reference.
+    - Penalize only if the explanation is factually wrong, meaningless, or irrelevant.
+
+    Scoring (integer 0-5):
+    - 5: fully accurate and complete.
+    - 4: correct and sufficient.
+    - 3: partially relevant.
+    - 2: tangential/speculative.
+    - 1: factually incorrect.
+    - 0: no attempt/off-topic.
+
+    Output format:
+    Return valid JSON with keys:
+    - "explanation"
+    - "score"
+
+    Question: {question}
+    Predicted Answer: {model_output}
+    Correct Answer: {reference_answer}
+
+scoring:
+  forward_task_types:
+    - forward
+    - future
+    - proactive
+  placeholder_responses:
+    - ""
+    - "silent"
+    - "focus_start"
+    - "focus_end"
+    - "<NO_INFORMATION>"
+    - "<SILENT>"
+    - "Alright, I'll send you a reminder then."
+    - "Got it, I'll let you know at that moment."
+    - "got it, i'll let you know."
+    - "Understood, I will remind you when the time comes."
+    - "收到，我会留意的。"
+    - "没问题，到时候提醒你。"
+    - "好的，到时候我会提醒你。"
+    - "没问题，到时候我会告诉你。"
+    - "No problem, I'll remind you then."
+    - "Okay, I will alert you when it happens."
+    - "I will make sure to remind you at that time."
+    - "好的，那到时候我会提醒你。"
+    - "好的，到时候我会发提醒给你。"
+    - "Sure, I will let you know at that time."
+    - "Noted, expect a reminder from me then."
+    - "Ok, I will remind you then."
+    - "Certainly, I will provide the reminder then."
+    - "No problem, I'll remind you then."
+    - "ok"
+    - "okay"
+    - "sure"
+    - "yes"
+    - "收到"
+    - "好的"
+    - "明白了"
+    - "got it, i will notify you at that moment."
