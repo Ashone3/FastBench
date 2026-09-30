@@ -8,7 +8,7 @@ Fast events create a difficult streaming trade-off: sparse sampling can miss the
 
 | Property | Description |
 | --- | --- |
-| Dataset size | 300 video clips and 306 QA pairs; six clips contain two QA pairs |
+| Dataset size | 300 video clips and 306 QA pairs|
 | Temporal scopes | Forward, Instant, and Backward |
 | Domains | Sports, Video Games, Performing Arts, Animals, Lifestyle & Recreation, Transportation, Science & Technology, Food & Cooking |
 | Capabilities | Action & Physical Interaction; Predictive & Causal Reasoning; Motion & Spatiotemporal Tracking; Entity & Visual Perception; Temporal & State Dynamics; Streaming & Online Detection |
