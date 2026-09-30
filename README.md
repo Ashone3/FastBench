@@ -63,20 +63,6 @@ hf download Ashenone3/FastBench --repo-type dataset --local-dir dataset
 
 The JSON paths start with `dataset/qa_video/`. Run evaluation from the code repository root with `VIDEO_ROOT="$PWD"`. See [the dataset card](dataset/README.md) for the annotation schema.
 
-### Upload the dataset (maintainers)
-
-The uploader selects only `dataset/README.md`, `dataset/proactive_perception_annotations.json`, and the MP4 files referenced by that JSON. On Hugging Face, these become `README.md`, `proactive_perception_annotations.json`, and `qa_video/` at the dataset repository root. Other local JSON files, review sidecars, and code are excluded.
-
-```bash
-# Offline validation; no account or uploader dependency is needed.
-python scripts/upload_fastbench_dataset.py --dry-run
-
-python -m pip install --upgrade huggingface_hub
-hf auth login
-python scripts/upload_fastbench_dataset.py --repo-id YOUR_ACCOUNT/FastBench --public
-```
-
-Omit `--public` to create a private repository. This option controls creation only; an existing repository retains its visibility. Use a new dataset repository for the initial release: uploading updates the selected paths but does not delete existing remote files. Authentication uses `hf auth login` or `HF_TOKEN`; use a token with write access to the target repository. `--dataset-dir /path/to/dataset` overrides the local data directory.
 
 ## Deploy a model
 
