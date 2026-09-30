@@ -4,8 +4,6 @@ Evaluation code for **FastBench**, a benchmark for high-dynamic perception in st
 
 Fast events create a difficult streaming trade-off: sparse sampling can miss the evidence needed to answer a question, while dense sampling consumes the context budget and shortens the available history. FastBench evaluates whether models can capture this evidence, retain it, and answer at the appropriate time as video arrives incrementally.
 
-This release includes local model serving, streaming inference, timing-aware scoring, and the Qwen3-VL-8B ProactiveFrame preset. The data-construction pipeline described in the paper is not bundled in this evaluation release. Model weights, benchmark annotations, and videos are obtained separately.
-
 ## FastBench at a glance
 
 | Property | Description |
@@ -14,10 +12,10 @@ This release includes local model serving, streaming inference, timing-aware sco
 | Temporal scopes | Forward, Instant, and Backward |
 | Domains | Sports, Video Games, Performing Arts, Animals, Lifestyle & Recreation, Transportation, Science & Technology, Food & Cooking |
 | Capabilities | Action & Physical Interaction; Predictive & Causal Reasoning; Motion & Spatiotemporal Tracking; Entity & Visual Perception; Temporal & State Dynamics; Streaming & Online Detection |
-| Streaming input | Incremental video chunks of up to one second |
-| Evaluation | Answer quality and response timing under bounded visual context |
+| Streaming input | Incremental video chunks of up to one second   |
+| Evaluation | Open-ended (LLM-as-a-Judge )               |
 
-The benchmark is constructed through high-FPS QA generation, filtering out questions still answerable at 2 FPS, trajectory-based verification using SAM3 and CoTracker3, and three rounds of human inspection. The manuscript describes human-annotated evidence intervals and the full curation procedure.
+The benchmark is constructed through high-FPS QA generation, filtering out questions still answerable at 2 FPS, trajectory-based verification using SAM3 and CoTracker3, and three rounds of human inspection.
 
 ## ProactiveFrame
 
@@ -26,25 +24,6 @@ ProactiveFrame lets the model request finer temporal observations through its te
 A two-tier context window retains recent high-FPS observations alongside sparse history. When the focus window overflows, older focused chunks are downsampled to the base FPS. The context manager evicts older history as needed to stay within the overall budget. This preserves historical coverage while allocating more frames to transient events.
 
 The manuscript reports an overall FastBench score of **32.9% for Qwen3-VL-8B at 2 FPS** and **38.3% with ProactiveFrame**, a gain of 5.4 percentage points. These are manuscript results, not scores recomputed during release preparation.
-
-## Repository layout
-
-```text
-.
-├── config.yaml                              # Existing baseline configuration
-├── configs/proactive_frame.yaml             # Dedicated ProactiveFrame prompt and scoring configuration
-├── hf_openai_server.py                      # Local model server
-├── run_stream_eval.py                       # Streaming and scoring implementation
-├── run_stream_eval_parallel.py              # Parallel evaluation entry point
-├── scripts/
-│   ├── deploy_*.sh                          # Model deployment entry points
-│   ├── eval_*.sh                            # Existing baseline entry points
-│   └── eval_qwen3_vl_8b_proactive_frame.sh    # Full ProactiveFrame preset
-├── dataset/README.md                        # Annotation and video layout
-└── tests/test_proactive_frame.py             # Offline preset checks
-```
-
-The internal benchmark key `phostream` and the `STREAMEVAL_*` environment variable names are retained for compatibility with the inherited evaluator. They do not change the benchmark's name: **FastBench**. For the same reason, the default annotation filename remains `dataset/proactive_perception_annotations.json`.
 
 ## Installation
 
@@ -63,30 +42,41 @@ All commands below run from the release root containing `config.yaml` and `scrip
 
 ## Prepare FastBench data
 
-Keep the JSON's `video_path` values unchanged. For the development annotation file, the expected layout is:
+Keep the released JSON's `video_path` values unchanged. The expected layout is:
 
 ```text
 .
 └── dataset/
     ├── proactive_perception_annotations.json
-    └── qa_video_20260921_2152_pure_en/
+    └── qa_video/
         ├── sample-0/original_cut.mp4
         ├── sample-1/original_cut1.mp4
         └── ...
 ```
 
-From the release root, prepare a local copy from an existing dataset:
+Download the Hugging Face dataset into `dataset/`:
 
 ```bash
-cp /path/to/proactive_perception_test_benchmark_annotations_20260923_0236_pure_en_classified_with_domains_merged_instant_primary.json \
-   dataset/proactive_perception_annotations.json
-cp -a /path/to/dataset/qa_video_20260921_2152_pure_en dataset/
-export VIDEO_ROOT="$PWD"
+python -m pip install --upgrade huggingface_hub
+hf download Ashenone3/FastBench --repo-type dataset --local-dir dataset
 ```
 
-For example, the first JSON entry uses `dataset/qa_video_20260921_2152_pure_en/sample-0/original_cut.mp4`. With this layout, `VIDEO_ROOT` is the **release root**, not `dataset/` or the sample directory. If data lives elsewhere, set `VIDEO_ROOT` to the directory containing its `dataset/` folder. Both evaluation configurations use the same annotation file.
+The JSON paths start with `dataset/qa_video/`. Run evaluation from the code repository root with `VIDEO_ROOT="$PWD"`. See [the dataset card](dataset/README.md) for the annotation schema.
 
-JSON and video files are ignored by Git and are not included in the release branch. See [dataset/README.md](dataset/README.md) for more detail. A video record may contain multiple questions: `--num-samples` limits video records, not individual QA pairs.
+### Upload the dataset (maintainers)
+
+The uploader selects only `dataset/README.md`, `dataset/proactive_perception_annotations.json`, and the MP4 files referenced by that JSON. On Hugging Face, these become `README.md`, `proactive_perception_annotations.json`, and `qa_video/` at the dataset repository root. Other local JSON files, review sidecars, and code are excluded.
+
+```bash
+# Offline validation; no account or uploader dependency is needed.
+python scripts/upload_fastbench_dataset.py --dry-run
+
+python -m pip install --upgrade huggingface_hub
+hf auth login
+python scripts/upload_fastbench_dataset.py --repo-id YOUR_ACCOUNT/FastBench --public
+```
+
+Omit `--public` to create a private repository. This option controls creation only; an existing repository retains its visibility. Use a new dataset repository for the initial release: uploading updates the selected paths but does not delete existing remote files. Authentication uses `hf auth login` or `HF_TOKEN`; use a token with write access to the target repository. `--dataset-dir /path/to/dataset` overrides the local data directory.
 
 ## Deploy a model
 
@@ -210,6 +200,4 @@ python -m unittest discover -s tests -p 'test_proactive_frame.py'
 
 ## Acknowledgements and license
 
-The streaming evaluator builds on **PhoStream**. The original MIT copyright notice is retained in [LICENSE](LICENSE); see [NOTICE.md](NOTICE.md) for attribution. Checkpoints and benchmark media have their own terms and are not redistributed with this source code.
-
-When using this benchmark or method, please cite the accompanying paper, **FastBench: Can Streaming VLMs Perceive High-Dynamic Real-World Streams?**
+The streaming evaluator builds on **PhoStream**. The original MIT copyright notice is retained in [LICENSE](LICENSE); see [NOTICE.md](NOTICE.md) for attribution.
