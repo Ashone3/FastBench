@@ -286,6 +286,10 @@ def parse_args() -> argparse.Namespace:
         description="Parallel StreamEval inference + scoring",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    p.add_argument(
+        "--native-moss-framewise", action="store_true",
+        help="Opt-in team-style MOSS frame gates with unchanged benchmark frame boundaries/scoring.",
+    )
     p.add_argument("--config", default="", help="Optional local config yaml")
     p.add_argument("--model-name", required=True)
     p.add_argument("--model-path", default="")
@@ -366,6 +370,11 @@ def parse_args() -> argparse.Namespace:
             "Feed each 1-second chunk as an AURA video turn. <|silent|> is scored as "
             "silence before the existing timestamp window."
         ),
+    )
+    p.add_argument(
+        "--native-aurav2-prompt",
+        action="store_true",
+        help="Use AURAv2 response rules to suppress acknowledgements (requires --native-aura).",
     )
     p.add_argument("--chunk-cache-root", type=str, default=None)
     p.add_argument(
@@ -492,7 +501,17 @@ def parse_args() -> argparse.Namespace:
         "--resume", action="store_true",
         help="Resume inference by skipping samples already written under this run-id",
     )
-    return p.parse_args()
+    args = p.parse_args()
+    if args.native_aurav2_prompt:
+        if not args.native_aura:
+            p.error("--native-aurav2-prompt requires --native-aura")
+        if args.native_videochat3 or args.native_moss or args.native_moss_framewise or args.native_joyai:
+            p.error("--native-aurav2-prompt cannot combine with another native model")
+    if args.native_moss_framewise:
+        if args.native_videochat3 or args.native_joyai or args.native_aura or args.proactive_focus:
+            p.error("--native-moss-framewise cannot combine with another native model or --proactive-focus")
+        args.native_moss = True
+    return args
 
 
 # ---------------------------------------------------------------------------
@@ -601,8 +620,10 @@ def main() -> None:
             pixel_budget=args.pixel_budget,
             native_videochat3=bool(args.native_videochat3),
             native_moss=bool(args.native_moss),
+            native_moss_framewise=bool(args.native_moss_framewise),
             native_joyai=bool(args.native_joyai),
             native_aura=bool(args.native_aura),
+            native_aurav2_prompt=bool(args.native_aurav2_prompt),
         )
         print(f"[Parallel] Creating {num_workers} inference runners ...")
         runners = _build_runners(

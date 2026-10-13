@@ -1,0 +1,4 @@
+# Install requirements.txt in a separate AURAv2 environment first, then this
+# overlay. MOSS uses checkpoint-specific remote code; retain its pinned runtime.
+transformers>=5.2.0,<6
+qwen-vl-utils>=0.0.14

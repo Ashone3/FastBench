@@ -23,6 +23,12 @@ case "$MODEL_FAMILY" in
         MODEL_ENV_PREFIX="AURA"
         NATIVE_FLAG="--native-aura"
         ;;
+    aurav2)
+        MODEL_PATH="${MODEL_PATH:-AURAv2}"
+        MODEL_TYPE="${MODEL_TYPE:-qwen3_5}"
+        MODEL_ENV_PREFIX="AURA"
+        NATIVE_FLAG="--native-aura"
+        ;;
     joyai_vl_interaction)
         MODEL_PATH="${MODEL_PATH:-JoyAI-VL-Interaction}"
         MODEL_TYPE="${MODEL_TYPE:-qwen3_vl}"
@@ -43,7 +49,7 @@ case "$MODEL_FAMILY" in
         ;;
     *)
         echo "[ERROR] Unsupported MODEL_FAMILY: $MODEL_FAMILY" >&2
-        echo "        Use qwen3_vl, aura, joyai_vl_interaction, moss_vl_realtime, or videochat3_4b." >&2
+        echo "        Use qwen3_vl, aura, aurav2, joyai_vl_interaction, moss_vl_realtime, or videochat3_4b." >&2
         exit 2
         ;;
 esac

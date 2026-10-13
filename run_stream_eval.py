@@ -44,6 +44,7 @@ except Exception:  # pragma: no cover
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_CONFIG_PATH = SCRIPT_DIR / "config.yaml"
 PLACEHOLDERS_LOWER: set[str] = set()
+PLACEHOLDER_PREFIX_PATTERNS: Tuple[re.Pattern[str], ...] = ()
 FORWARD_TASK_TYPES: set[str] = {"forward", "future", "proactive"}
 
 # qwen-vl-utils first resizes video frames on a 28px grid, then the Qwen3-VL
@@ -221,13 +222,27 @@ def normalize_api_base(url: str, default_scheme: str = "https") -> str:
 
 
 def init_runtime_constants(config: Dict[str, Any]) -> None:
-    global PLACEHOLDERS_LOWER, FORWARD_TASK_TYPES
+    global PLACEHOLDERS_LOWER, PLACEHOLDER_PREFIX_PATTERNS, FORWARD_TASK_TYPES
     scoring_cfg = config.get("scoring", {}) if isinstance(config, dict) else {}
 
     placeholders = scoring_cfg.get("placeholder_responses", [])
     if not isinstance(placeholders, list):
         raise ValueError("config.scoring.placeholder_responses must be a list")
     PLACEHOLDERS_LOWER = {str(x).strip().lower() for x in placeholders}
+
+    # Opt-in only: configurations without this key retain exact matching.
+    prefix_patterns = scoring_cfg.get("placeholder_response_prefix_patterns", [])
+    if not isinstance(prefix_patterns, list) or any(
+        not isinstance(pattern, str) or not pattern.strip() for pattern in prefix_patterns
+    ):
+        raise ValueError("config.scoring.placeholder_response_prefix_patterns must be a list of nonempty regex strings")
+    try:
+        compiled = tuple(re.compile(pattern, re.IGNORECASE) for pattern in prefix_patterns)
+    except re.error as exc:
+        raise ValueError(f"Invalid config.scoring.placeholder_response_prefix_patterns: {exc}") from exc
+    if any(pattern.match("") for pattern in compiled):
+        raise ValueError("config.scoring.placeholder_response_prefix_patterns must not match empty text")
+    PLACEHOLDER_PREFIX_PATTERNS = compiled
 
     forward_types = scoring_cfg.get("forward_task_types", ["forward", "future", "proactive"])
     if not isinstance(forward_types, list):
@@ -280,9 +295,22 @@ def is_placeholder(text: str, extra_placeholders: Optional[Iterable[str]] = None
     key = (text or "").strip().lower()
     if key in PLACEHOLDERS_LOWER:
         return True
-    if not extra_placeholders:
+    if extra_placeholders and key in {str(item).strip().lower() for item in extra_placeholders}:
+        return True
+    if not PLACEHOLDER_PREFIX_PATTERNS or not key:
         return False
-    return key in {str(item).strip().lower() for item in extra_placeholders}
+    # Require each sentence/clause to start with a configured promise prefix.
+    # This preserves a promise followed by a separate factual answer. Do not
+    # split numbered names such as "car No. 103" at their abbreviation period.
+    clauses = [
+        clause.strip()
+        for clause in re.split(r"[.!?](?:\s+(?=[^\s\d])|$)|;\s*|[\r\n]+", key)
+        if clause.strip()
+    ]
+    return bool(clauses) and all(
+        any(pattern.match(clause) for pattern in PLACEHOLDER_PREFIX_PATTERNS)
+        for clause in clauses
+    )
 
 
 def time_to_seconds(t: str) -> int:
@@ -2432,6 +2460,12 @@ NATIVE_AURA_SYSTEM = (
     "Respond only when a response is needed based on the user's message or the visual context. "
     "Otherwise, output `<|silent|>` to signify silence."
 )
+NATIVE_AURAV2_RESPONSE_RULES = """Response rules:
+- At each turn, output either the requested factual answer or the exact token <|silent|>.
+- Use the video seen so far and prior dialogue to answer as soon as there is enough evidence. Until then, output only <|silent|> and keep the question active for subsequent chunks.
+- An answer consists only of the requested information. For multiple-choice questions, output only the correct option letter.
+- When focus control is enabled, Focus_Start and Focus_End follow its existing rules."""
+NATIVE_AURAV2_SYSTEM = NATIVE_AURA_SYSTEM + "\n\n" + NATIVE_AURAV2_RESPONSE_RULES
 NATIVE_AURA_FOCUS_SYSTEM = """You are receiving a live video stream where the final frame is the present moment. At any moment, there is at most one active question.
 
 Answer the active question as soon as the video seen so far and the prior dialogue contain enough information for a complete, factually grounded answer.
@@ -2886,6 +2920,8 @@ class InferenceOptions:
     native_moss: bool = False
     native_joyai: bool = False
     native_aura: bool = False
+    native_moss_framewise: bool = False
+    native_aurav2_prompt: bool = False
 
 
 class StreamingState:
@@ -3159,6 +3195,10 @@ class UnifiedInferenceRunner:
         if self.options.native_videochat3:
             self.system_prompt_text = NATIVE_VIDEOCHAT3_SYSTEM
             self.silent_word = NATIVE_VIDEOCHAT3_SILENCE.strip().lower()
+        elif self.options.native_moss_framewise:
+            from moss_framewise import SYSTEM_PROMPT
+            self.system_prompt_text = SYSTEM_PROMPT
+            self.silent_word = NATIVE_MOSS_SILENCE
         elif self.options.native_joyai:
             self.system_prompt_text = NATIVE_JOYAI_SYSTEM
             if self.options.proactive_focus:
@@ -3169,6 +3209,15 @@ class UnifiedInferenceRunner:
             self.system_prompt_text = (
                 NATIVE_AURA_FOCUS_SYSTEM if self.options.proactive_focus else NATIVE_AURA_SYSTEM
             )
+            if self.options.native_aurav2_prompt:
+                self.system_prompt_text += "\n\n" + NATIVE_AURAV2_RESPONSE_RULES
+        if self.options.native_moss_framewise:
+            self._verify_native_moss_framewise_backend()
+
+    def _verify_native_moss_framewise_backend(self) -> None:
+        from moss_framewise import verify_endpoint
+        verify_endpoint(self.model.backend.api_base)
+        self._moss_framewise_verified = True
 
     def _is_silent_response(self, text: str) -> bool:
         return (text or "").strip().lower() == self.silent_word
@@ -3370,6 +3419,74 @@ class UnifiedInferenceRunner:
             if finished or (not events_queue and answer_window < 0):
                 break
             round_idx += 1
+        return sample | {"responses": responses, "bench": bench_name}
+
+    def _run_sample_native_moss_framewise(self, sample: Dict[str, Any], bench_name: str) -> Dict[str, Any]:
+        """Continuous team-style ingestion with the unchanged benchmark chunk clock."""
+        import copy
+        from moss_framewise import PROTOCOL
+
+        # Persistent queue inputs cannot safely be retried: a failed HTTP request
+        # may already have advanced the model's KV cache. Leave legacy retries alone.
+        backend = copy.copy(self.model.backend)
+        backend.max_retries = 1
+        if not getattr(self, "_moss_framewise_verified", False):
+            self._verify_native_moss_framewise_backend()
+        streaming = StreamingState(
+            sample=sample, chunk_seconds=self.options.chunk_seconds,
+            trim_fps=self.options.trim_fps, model_video_fps=self.options.model_video_fps,
+            force_focus=self.options.force_focus,
+            focus_window_seconds=self.options.focus_window_seconds,
+            high_fps=self.options.high_fps, full_video_high_fps=self.options.full_video_high_fps,
+            chunk_cache_root=self.options.chunk_cache_root,
+        )
+        sample_id = str(sample.get("id") or sample.get("uuid") or "unknown")
+        frame_root = streaming.chunk_cache_dir / "native_moss_frames"
+        responses = []
+        reset = True
+        while True:
+            step = streaming.step()
+            frames = []
+            if step.get("stream_chunk"):
+                start = float(step["chunk_start_seconds"])
+                end = start + float(step["chunk_duration_seconds"])
+                frames = [
+                    {"image": path, "timestamp": ts}
+                    for path, ts in native_moss_extract_chunk_frames(
+                        streaming.video_path, start, end, float(step["chunk_model_fps"]), frame_root,
+                    )
+                ]
+                # Reject a corrupt cache/decoder boundary instead of silently allowing Q pixels.
+                if any(float(frame["timestamp"]) >= end for frame in frames):
+                    raise ValueError("MOSS frame sampler returned an excluded chunk boundary frame")
+            prompts = [render_user_prompt(event).strip() for event in step.get("new_events") or []]
+            prompts = [prompt for prompt in prompts if prompt]
+            if frames or prompts:
+                item = {
+                    "type": "moss_realtime", "sample_id": sample_id, "reset": reset,
+                    "system_prompt": self.system_prompt_text, "frames": frames, "prompts": prompts,
+                    "framewise_protocol": PROTOCOL, "chunk_end": float(streaming.current_time),
+                }
+                backend.timeout = max(
+                    float(self.model.backend.timeout), 60.0 * (len(frames) + len(prompts) + 1) + 30.0,
+                )
+                began = time.perf_counter()
+                generated = backend.generate(
+                    [{"role": "user", "content": [item]}], max_new_tokens=self.model_max_new_tokens,
+                )
+                if int(generated.get("status_code", 500)) != 200:
+                    # Incomplete streaming samples must not be scored as ordinary silence.
+                    raise RuntimeError(f"Framewise MOSS execution failed: {generated.get('response', '')}")
+                answer = str(generated.get("response", ""))
+                responses.append({
+                    "timestamp": seconds_to_time(int(streaming.current_time)),
+                    "response": prepare_native_moss_scored_text(answer),
+                    "raw_response": str(generated.get("raw_response", answer)),
+                    "status_code": 200, "runtime_ms": round((time.perf_counter() - began) * 1000, 2),
+                })
+                reset = False
+            if step["is_finished"]:
+                break
         return sample | {"responses": responses, "bench": bench_name}
 
     def _run_sample_native_moss(self, sample: Dict[str, Any], bench_name: str) -> Dict[str, Any]:
@@ -3934,6 +4051,8 @@ class UnifiedInferenceRunner:
             retries_left -= 1
 
     def run_sample(self, sample: Dict[str, Any], bench_name: str) -> Dict[str, Any]:
+        if self.options.native_moss_framewise:
+            return self._run_sample_native_moss_framewise(sample, bench_name)
         if self.options.native_videochat3:
             return self._run_sample_native_videochat3(sample, bench_name)
         if self.options.native_moss:
@@ -4382,6 +4501,11 @@ def resolve_model_output_input(path_str: str) -> List[Path]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Self-contained StreamEval inference + scoring")
+    parser.add_argument(
+        "--native-moss-framewise", action="store_true",
+        help="Opt-in team-style MOSS frame gates; questions precede the last legal chunk frame. "
+             "Implies --native-moss; preserves benchmark timestamps and scoring.",
+    )
     parser.add_argument("--config", default="", help="Optional local config yaml")
     parser.add_argument("--model-name", required=True)
     parser.add_argument("--model-path", default="", help="Override model id/path for API payload")
@@ -4466,6 +4590,11 @@ def parse_args() -> argparse.Namespace:
             "Feed each 1-second chunk as an AURA video turn. <|silent|> is scored as "
             "silence before the existing timestamp window."
         ),
+    )
+    parser.add_argument(
+        "--native-aurav2-prompt",
+        action="store_true",
+        help="Use AURAv2 response rules to suppress acknowledgements (requires --native-aura).",
     )
     parser.add_argument("--chunk-cache-root", type=str, default=None)
     parser.add_argument(
@@ -4566,7 +4695,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-inference", action="store_true")
     parser.add_argument("--skip-scoring", action="store_true")
     parser.add_argument("--model-output", default="")
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.native_aurav2_prompt:
+        if not args.native_aura:
+            parser.error("--native-aurav2-prompt requires --native-aura")
+        if args.native_videochat3 or args.native_moss or args.native_moss_framewise or args.native_joyai:
+            parser.error("--native-aurav2-prompt cannot combine with another native model")
+    if args.native_moss_framewise:
+        if args.native_videochat3 or args.native_joyai or args.native_aura or args.proactive_focus:
+            parser.error("--native-moss-framewise cannot combine with another native model or --proactive-focus")
+        args.native_moss = True
+    return args
 
 
 def parse_high_fps(value: str) -> Optional[float]:
@@ -4672,8 +4811,10 @@ def main() -> None:
             pixel_budget=args.pixel_budget,
             native_videochat3=bool(args.native_videochat3),
             native_moss=bool(args.native_moss),
+            native_moss_framewise=bool(args.native_moss_framewise),
             native_joyai=bool(args.native_joyai),
             native_aura=bool(args.native_aura),
+            native_aurav2_prompt=bool(args.native_aurav2_prompt),
         )
         runner = UnifiedInferenceRunner(
             config=config,

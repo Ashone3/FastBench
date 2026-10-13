@@ -131,6 +131,9 @@ def normalize_content(content: Any) -> List[Dict[str, Any]]:
                     "drain_seconds": float(item.get("drain_seconds", 30.0) or 30.0),
                 }
             )
+            if item.get("framewise_protocol"):
+                out[-1]["framewise_protocol"] = str(item["framewise_protocol"])
+                out[-1]["chunk_end"] = float(item["chunk_end"])
     return out
 
 
@@ -205,10 +208,11 @@ class TextEngine(BaseEngine):
 
 
 class Qwen3VLEngine(BaseEngine):
+    model_family = "qwen3_vl"
+
     def __init__(self, model_path: str, device_map: str, torch_dtype: str, attn_implementation: str):
         super().__init__(model_path)
         from transformers import AutoProcessor
-        from transformers import Qwen3VLForConditionalGeneration, Qwen3VLMoeForConditionalGeneration
 
         dtype = resolve_torch_dtype(torch_dtype)
         try:
@@ -219,22 +223,22 @@ class Qwen3VLEngine(BaseEngine):
             if "does not appear to have a file named" not in str(exc):
                 raise
             self.processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=False)
-        if "A3B" in model_path:
-            self.model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
-                model_path,
-                torch_dtype=dtype,
-                device_map=device_map,
-                attn_implementation=attn_implementation,
-                trust_remote_code=True,
-            )
+        if self.model_family == "qwen3_5":
+            try:
+                from transformers import Qwen3_5ForConditionalGeneration
+            except ImportError as exc:
+                raise RuntimeError("Qwen3.5 requires a Transformers version with Qwen3_5ForConditionalGeneration support") from exc
+            model_class = Qwen3_5ForConditionalGeneration
         else:
-            self.model = Qwen3VLForConditionalGeneration.from_pretrained(
-                model_path,
-                torch_dtype=dtype,
-                device_map=device_map,
-                attn_implementation=attn_implementation,
-                trust_remote_code=True,
-            )
+            from transformers import Qwen3VLForConditionalGeneration, Qwen3VLMoeForConditionalGeneration
+            model_class = Qwen3VLMoeForConditionalGeneration if "A3B" in model_path else Qwen3VLForConditionalGeneration
+        self.model = model_class.from_pretrained(
+            model_path,
+            torch_dtype=dtype,
+            device_map=device_map,
+            attn_implementation=attn_implementation,
+            trust_remote_code=True,
+        )
         self.model.eval()
 
         try:
@@ -246,14 +250,7 @@ class Qwen3VLEngine(BaseEngine):
             ) from exc
         self.process_vision_info = process_vision_info
 
-    def generate(
-        self,
-        messages: List[Dict[str, Any]],
-        max_new_tokens: int,
-        temperature: float,
-        skip_special_tokens: bool = True,
-    ) -> str:
-        text = self.processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    def _prepare_multimodal_inputs(self, messages, text):
         images, videos, video_kwargs = self.process_vision_info(
             messages,
             return_video_kwargs=True,
@@ -262,7 +259,7 @@ class Qwen3VLEngine(BaseEngine):
         if video_kwargs:
             # qwen_vl_utils returns kwargs for the video processor (e.g. fps/do_sample_frames).
             # These should be passed through `videos_kwargs` instead of `video_metadata`.
-            inputs = self.processor(
+            return self.processor(
                 text=[text],
                 images=images,
                 videos=videos,
@@ -270,12 +267,26 @@ class Qwen3VLEngine(BaseEngine):
                 videos_kwargs=video_kwargs,
             ).to(self.model.device)
         else:
-            inputs = self.processor(
+            return self.processor(
                 text=[text],
                 images=images,
                 videos=videos,
                 return_tensors="pt",
             ).to(self.model.device)
+
+    def _generation_stop_kwargs(self):
+        # Existing model families keep their checkpoint's generation defaults.
+        return {}
+
+    def generate(
+        self,
+        messages: List[Dict[str, Any]],
+        max_new_tokens: int,
+        temperature: float,
+        skip_special_tokens: bool = True,
+    ) -> str:
+        text = self.processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = self._prepare_multimodal_inputs(messages, text)
 
         do_sample = temperature > 0
         with torch.no_grad():
@@ -284,12 +295,57 @@ class Qwen3VLEngine(BaseEngine):
                 max_new_tokens=max_new_tokens,
                 do_sample=do_sample,
                 temperature=max(temperature, 1e-6) if do_sample else None,
+                **self._generation_stop_kwargs(),
             )
         input_len = inputs.input_ids.shape[1]
         trimmed = generated_ids[:, input_len:]
         return self.processor.batch_decode(
             trimmed, skip_special_tokens=skip_special_tokens, clean_up_tokenization_spaces=False
         )[0].strip()
+
+
+class Qwen3_5Engine(Qwen3VLEngine):
+    """Qwen3.5 weights with the checkpoint-provided multimodal processor."""
+
+    model_family = "qwen3_5"
+
+    def _generation_stop_kwargs(self):
+        # Some exported AURAv2 checkpoints only configure <|endoftext|> as
+        # EOS, although training turns end with <|im_end|>. Keep configured
+        # stops and add the tokenizer's turn terminator without changing files.
+        configured = self.model.generation_config.eos_token_id
+        eos_ids = list(configured) if isinstance(configured, (list, tuple)) else []
+        if isinstance(configured, int):
+            eos_ids.append(configured)
+        tokenizer = self.processor.tokenizer
+        if tokenizer.eos_token_id is not None:
+            eos_ids.append(tokenizer.eos_token_id)
+        turn_end = tokenizer.convert_tokens_to_ids("<|im_end|>")
+        if turn_end is not None and tokenizer.convert_ids_to_tokens(turn_end) == "<|im_end|>":
+            eos_ids.append(turn_end)
+        if not eos_ids:
+            raise ValueError("Qwen3.5 checkpoint has no valid end-of-response token")
+        return {"eos_token_id": list(dict.fromkeys(eos_ids))}
+
+    def _prepare_multimodal_inputs(self, messages, text):
+        # Recent Transformers requires per-video metadata, not a list in fps.
+        # Preserve original frame indices and fps; do not sample frames twice.
+        images, video_items, video_kwargs = self.process_vision_info(
+            messages,
+            return_video_kwargs=True,
+            return_video_metadata=True,
+            image_patch_size=self.processor.image_processor.patch_size,
+        )
+        videos = [item[0] for item in video_items] if video_items else None
+        metadata = [item[1] for item in video_items] if video_items else None
+        return self.processor(
+            text=[text],
+            images=images,
+            videos=videos,
+            video_metadata=metadata,
+            return_tensors="pt",
+            videos_kwargs=video_kwargs,
+        ).to(self.model.device)
 
 
 class Qwen3OmniEngine(BaseEngine):
@@ -575,6 +631,8 @@ class MossVLEngine(BaseEngine):
             load_kwargs["attn_implementation"] = "eager"
             self.model = AutoModelForCausalLM.from_pretrained(model_path, **load_kwargs)
         self.model.eval()
+        self._framewise = None
+        self._framewise_sample_id = ""
         self._session = None
         self._session_sample_id = ""
         self._lock = threading.Lock()
@@ -583,6 +641,10 @@ class MossVLEngine(BaseEngine):
         realtime = _find_moss_realtime_item(messages)
         if realtime is not None:
             return self._generate_realtime(realtime, max_new_tokens, temperature)
+        if self._framewise is not None:
+            with self._lock:
+                self._framewise.close()
+                self._framewise = None
         return self._generate_offline(messages, max_new_tokens, temperature)
 
     def _generate_offline(self, messages: List[Dict[str, Any]], max_new_tokens: int, temperature: float) -> str:
@@ -635,11 +697,43 @@ class MossVLEngine(BaseEngine):
         )
         self._session.start()
 
+    def _generate_framewise(self, item, max_new_tokens, temperature):
+        from moss_framewise import FramewiseSession, PROTOCOL
+
+        if item["framewise_protocol"] != PROTOCOL:
+            raise ValueError("Unsupported framewise MOSS protocol")
+        sample_id = str(item.get("sample_id", ""))
+        with self._lock:
+            if self._session is not None:
+                self._session.close(timeout=10.0)
+                self._session = None
+            if item.get("reset") or self._framewise is None or sample_id != self._framewise_sample_id:
+                if self._framewise is not None:
+                    self._framewise.close()
+                    self._framewise = None
+                self._framewise = FramewiseSession(self.model, self.processor, max_new_tokens, temperature)
+                self._framewise_sample_id = sample_id
+            try:
+                return prepare_native_moss_output(self._framewise.generate(item))
+            except BaseException:
+                import sys
+                import traceback
+                print(f"[moss-framewise] generation failed: sample_id={sample_id!r}, chunk_end={item.get('chunk_end')!r}", file=sys.stderr, flush=True)
+                traceback.print_exc(file=sys.stderr)
+                self._framewise.close()
+                self._framewise = None
+                raise
+
     def _generate_realtime(self, item: Dict[str, Any], max_new_tokens: int, temperature: float) -> str:
+        if item.get("framewise_protocol"):
+            return self._generate_framewise(item, max_new_tokens, temperature)
         from PIL import Image
 
         sample_id = str(item.get("sample_id", "")).strip()
         with self._lock:
+            if self._framewise is not None:
+                self._framewise.close()
+                self._framewise = None
             if item.get("reset") or self._session is None or sample_id != self._session_sample_id:
                 self._reset_session(str(item.get("system_prompt", "") or ""), max_new_tokens, temperature)
                 self._session_sample_id = sample_id
@@ -754,8 +848,9 @@ def build_engine(
             attn_implementation=attn_implementation,
             use_audio_in_video=use_audio_in_video,
         )
-    if model_type == "qwen3_vl":
-        return Qwen3VLEngine(
+    if model_type in ("qwen3_vl", "qwen3_5"):
+        engine_class = Qwen3_5Engine if model_type == "qwen3_5" else Qwen3VLEngine
+        return engine_class(
             model_path=model_path,
             device_map=device_map,
             torch_dtype=torch_dtype,
@@ -799,6 +894,25 @@ class AppHandler(BaseHTTPRequestHandler):
     server_version = "hf-openai/0.1"
 
     def do_GET(self) -> None:  # noqa: N802
+        if self.path == "/moss-framewise/protocol":
+            from moss_framewise import PROTOCOL
+            engine = self.server.app_state["engine"]
+            if not isinstance(engine, MossVLEngine):
+                write_json(self, HTTPStatus.CONFLICT, {"error": "This server is not running MOSS-VL"})
+                return
+            write_json(self, HTTPStatus.OK, {
+                "protocol": PROTOCOL, "model_type": "moss_vl", "pid": os.getpid(),
+                "server_file": str(Path(__file__).resolve()),
+            })
+            return
+        if self.path == "/server-info":
+            state = self.server.app_state
+            engine = state["engine"]
+            write_json(self, HTTPStatus.OK, {
+                "pid": os.getpid(), "model_path": engine.model_path,
+                "model_type": state["model_type"], "engine_class": type(engine).__name__,
+            })
+            return
         if self.path == "/health":
             write_json(self, HTTPStatus.OK, {"status": "ok"})
             return
@@ -872,7 +986,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-type",
         default="auto",
-        choices=["auto", "qwen3_omni", "qwen3_vl", "videochat3", "moss_vl", "text"],
+        choices=["auto", "qwen3_omni", "qwen3_vl", "qwen3_5", "videochat3", "moss_vl", "text"],
     )
     parser.add_argument("--served-model-name", default="", help="Model name returned by /v1/models")
     parser.add_argument("--host", default="127.0.0.1")
@@ -900,7 +1014,7 @@ def main() -> None:
     print(f"[hf-openai] Loaded. Serving as model: {served_model_name}")
 
     server = ThreadingHTTPServer((args.host, args.port), AppHandler)
-    server.app_state = {"engine": engine, "served_model_name": served_model_name}  # type: ignore[attr-defined]
+    server.app_state = {"engine": engine, "served_model_name": served_model_name, "model_type": args.model_type}  # type: ignore[attr-defined]
 
     print(f"[hf-openai] Listening on http://{args.host}:{args.port}")
     print("[hf-openai] Endpoints: GET /health, GET /v1/models, POST /v1/chat/completions")

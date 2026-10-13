@@ -1,0 +1,2206 @@
+{
+  "included": [
+    {
+      "text": "Answer:",
+      "occurrences": 7
+    },
+    {
+      "text": "Answer: I'll keep a close eye on his jump and let you know the exact moment he knocks the bar down.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: I'll keep an eye on the windshield wipers and let you know when the screen cuts.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on his serve and let you know if he tosses the ball higher than his head.",
+      "occurrences": 2
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on it and let you know when it takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on the black pipe and let you know if any sparks appear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on the black pipe and let you know when sparks appear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on the cab's movement when it hits the fence.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye on the driver of car No. 103 and let you know when he makes a gesture.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll keep an eye out and let you know when something interesting happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Answer: No problem, I'll let you know as soon as a flash appears.",
+      "occurrences": 2
+    },
+    {
+      "text": "Answer: No problem, I'll let you know as soon as electric sparks appear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll keep an eye on his swing and let you know what kind of shot he hits.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll keep an eye out and let you know when the dark stripe is directly facing the camera.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll keep an eye out and let you know when the rally ends.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as he finishes the demonstration.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the ball is received.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the performer makes the next quick move.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the player in the red jersey makes his return.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the player turns the Rubik's cube.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the trajectory of the blade light is clear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the yo-yo flips to the left side of the index finger for the first time.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know as soon as the yo-yo flips to the right side.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know right away when the performer in red clothes and a red mask appears on screen.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know the direction of the red blade light trail when the first close-range strike happens.",
+      "occurrences": 2
+    },
+    {
+      "text": "Got it, I'll let you know the exact wing posture as soon as the kingfisher touches the water.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know the exact wing posture when the kingfisher touches the water.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know the speed as soon as it shifts into 5th gear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know when he hits the shuttlecock back.",
+      "occurrences": 2
+    },
+    {
+      "text": "Got it, I'll let you know when he makes that quick movement.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know when the actor changes from a green face to a red face.",
+      "occurrences": 1
+    },
+    {
+      "text": "Got it, I'll let you know when the rider lands and separates from the bicycle.",
+      "occurrences": 1
+    },
+    {
+      "text": "I'll keep an eye out and let you know when it flaps its wings.",
+      "occurrences": 1
+    },
+    {
+      "text": "I'll keep an eye out and let you know when it makes contact with the water.",
+      "occurrences": 1
+    },
+    {
+      "text": "No problem, I'll keep an eye on her movements and let you know how many steps she takes.",
+      "occurrences": 1
+    },
+    {
+      "text": "No problem, I'll keep an eye on the kingfisher's takeoff and count the exact number of wing flaps for you.",
+      "occurrences": 1
+    },
+    {
+      "text": "No problem, I'll keep an eye on the player in the foreground and let you know what movement he uses to complete the next shot.",
+      "occurrences": 1
+    },
+    {
+      "text": "No problem, I'll keep an eye on the player's health and let you know when he gets hit.",
+      "occurrences": 1
+    },
+    {
+      "text": "No problem, I'll keep an eye out for the first time he jumps out of cover to engage in combat, and I'll let you know how many times he took damage that reduced his health.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I will keep a close eye on the goalkeeper's save and let you know the specific blocking details when it happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I will keep an eye on the goalkeeper's save and let you know the details when it happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I will keep an eye on the silver sedan ahead and alert you if it shows any abnormal swaying.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I will keep an eye on the silver sedan ahead and alert you immediately if it shows any abnormal swaying.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep a close eye on his right hand and let you know the exact action he performs on the rubber band.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on her movements and let you know how many steps she takes.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on his actions and let you know.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on his cutting speed and let you know how many cuts he makes.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on his fan and let you know when he lifts his leg.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on his hand movements and let you know the exact number of face rotations.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on his landing and let you know when he lands.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye on his movements and let you know when he gets past the monster.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on his right hand and let you know when he shifts gears.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on his swing and let you know what kind of shot he hits.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on it and let you know when it flies off.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on it and let you know when it takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the actor in red on the far right and let you know when he turns.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the ball and let you know if it's blocked.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the ball's trajectory and let you know if it goes into the goal.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the black pipe and let you know when sparks appear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the boy in black shorts and let you know when he swings.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the cup and let you know when it shatters.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the cup's shattering process and let you know when it happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the dashboard and let you know when the view shifts to the mirror.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the deck in his right hand and let you know its position in the left hand's deck after one second.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the deck in his right hand and let you know where it ends up.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the driver of car No. 103 and let you know when he makes a gesture.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the eagle's wing movements and let you know when the shot ends.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the far-side player's shot and let you know which near-side player returns it.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the goalkeeper's next move and let you know if he gets the ball before the player in red.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the grenade countdown and let you know when it disappears.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the host and let you know when he blinks.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the items he picks up from the crate and let you know.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the kingfisher's takeoff and count its wing flaps for you.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the man in black and let you know when he makes his move.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the man in black holding a broadsword and let you know when he makes his move.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the next three seconds and let you know what happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the pitcher and let you know what happens in the next three seconds.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player in black and let you know the total number of strokes and their types.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player in red number 21 and let you know when he dribbles past the player in white.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player in the foreground and let you know when he completes his shot.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player in the foreground and let you know when he completes the shot.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player in white in front of the goal and let you know if he touches the ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player's health and let you know when he gets hit.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the player's next kill and let you know the details.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the raptor and count its wing flaps for you.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the red ball and let you know if it goes into the top-left pocket.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the red boxer's combo and let you know the total number of punches before they clinch.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the red enemy's jump and let you know if the player successfully counterattacks.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the red shovel and let you know its final state when the hand lets go.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on the right hand's next move and let you know if it takes away what's in the left hand.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye on the save and let you know the details of the goalkeeper's block.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the shot and the goalkeeper's save, and I'll describe it to you right away.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the shot and the goalkeeper's save, and I'll let you know the details right away.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the speedometer and let you know when it drops to its lowest point during the drift.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye on the truck's movement and let you know if it gets too close.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the upcoming firefight and let you know when the player gets hit.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye on the windshield wipers and let you know when the screen cuts.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye on them and let you know when something happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know as soon as the first piece is sliced off.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know as soon as the montage ends.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know as soon as the player takes the free kick.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know as soon as the red boxer finishes his combo.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know how many times he folds the paper.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know how many times it slams the fish.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know if it slams the fish against the branch.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know if it slams the fish.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know the first evaluation text as soon as the screen turns black.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know the speed when it shifts into 5th gear.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know the total number of punches he throws before they clinch.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know the total number of punches thrown by the coach.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know the total number of punches.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know what happens next to the duck.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he bends down to pick up the ball.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he finishes folding.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he has juggled the ball twice.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he picks up the first item.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he returns the shuttlecock.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he sprays the scissors.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he starts folding the paper.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when he turns back to face forward.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when it flicks its tongue.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when it makes a downward stroke.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when it takes action.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when it takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when she takes the next steps.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when that happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the ball has been juggled twice.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the bird starts tossing its head to swallow the fish.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the bird starts tossing its head.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the camera switches and stabilizes.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the cup shatters.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the dark stripe on the ball is directly facing the camera.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the fish starts violently thrashing.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the mechanism is revealed.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the pen starts spinning around the thumb.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the player in red makes the return.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know when the total number of drops is clear.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know which ball shatters first.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out and let you know which side her glasses fly off to once it happens.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for any attack from the snake.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for his next action and let you know when the wooden stick changes.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for his next through ball and let you know which foot he uses.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for player number 17 in the red jersey and let you know when he leaves the group and how many times he clapped.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for that specific wrist movement and let you know when it happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the airplane and let you know which side it tilted toward when it appears.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the camera switches and let you know when it stabilizes on donk.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the cars flashing by and let you know how many are between the blue and silver sports cars.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the cars in the convoy ahead and let you know the total count.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the cars in the convoy ahead and let you know the total number.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the color effect on the car body after it lands.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the color of the special effect when the car lands.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the first close-range strike and let you know the direction of the red light trail.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the first evaluation text that flashes across when the screen turns blue.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the first evaluation text that flashes on the timer when the screen turns black.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the first jump-out combat and let you know how many times he took damage.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the Flash and Dragon's Rage combo and let you know the sequence.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the kingfisher's head-shaking action and let you know when it happens.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the man with the spray can and count how many times he sprays the steering wheel.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the player in red number 21 and let you know when he dribbles past the player in white.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the player's next kill and let you know the details.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the rear turn signal and let you know when it lights up.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the red slash trail and let you know its direction when it appears.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the red slash trail and let you know when it appears.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the rider's hand movements right after the bicycle lands and they separate.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the rider's hand movements when they land and separate from the bicycle.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the scoreboard panel and let you know when it appears.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the Sichuan face-changing scene and let you know when the mask disappears.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the snake flicking its tongue while crawling forward.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the turn signal flashing pattern.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the two birds crossing paths and let you know which one is on top.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for the two enemies ahead and let you know when the player hits one.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for what happens next.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for what happens to the wooden stick next.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for when he switches to a melee weapon and let you know the details of its grip.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for when he throws the drumstick.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for when it shakes off water and let you know the exact number of cycles.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll keep an eye out for when player number 17 leaves the group and count his claps.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for when the two birds cross paths in the air.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for whether he continues this arm-swinging action and let you know the total count.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for whether he continues this arm-swinging action and let you know.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for whether the dummy hits the steering wheel directly after the collision.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for which finger the knife flips around when he starts.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for which foot leaves the ground when he turns back to face forward.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll keep an eye out for you and let you know when he makes the next move with the wooden stick.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for you. I'll let you know as soon as he starts flipping the knife.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for you. I'll let you know as soon as he swings the racket.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out for you. I'll let you know if the dummy hits the steering wheel directly after the collision.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out to see if it adjusts its posture before diving.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out to see if it touches the heater.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out to see if the dummy hits the steering wheel directly after the collision.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out to see if the opponent receives the ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll keep an eye out to see if the player in white touches the ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know as soon as electric sparks appear.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know as soon as he uses an item to hide the face change.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know as soon as he uses any props or clothing to obscure his face.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know as soon as No. 25 Ndidi makes his pass.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know as soon as the performer starts the head whip.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know as soon as the performer throws the card.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know as soon as the player checks a skill.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know as soon as the screen turns blue and the first text appears.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know what happens to his mask once the fan is moved away.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know what the snake does when the recorder reaches into the compartment.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know what the snake does when the video recorder reaches toward the compartment.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know what the snake does when the video recorder reaches toward the under-seat storage compartment.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when No. 25 Ndidi makes his pass.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when the actor closes the golden fan and swings it.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll let you know when the car goes through the next turn and the exhaust flame appears.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll let you know when the fan is moved away and the mask changes.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when the fireball bursts out and he raises his arm.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when the kingfisher's head is about to break the water surface.",
+      "occurrences": 2
+    },
+    {
+      "text": "Okay, I'll let you know when the performer makes their next quick move.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when the player checks the next set of camera feeds.",
+      "occurrences": 3
+    },
+    {
+      "text": "Okay, I'll let you know when the player checks the skill range or description.",
+      "occurrences": 1
+    },
+    {
+      "text": "Okay, I'll let you know when the player eliminates the monster in front of them.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye on his actions and let you know when he makes a move.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye on his cutting speed and let you know.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye on his face changes and let you know when he completes the next three.",
+      "occurrences": 3
+    },
+    {
+      "text": "Sure, I'll keep an eye on his fan and let you know when he lifts his leg.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on his right hand and let you know when he pulls the gear shift lever.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye on his right hand and let you know when he starts moving the rubber band.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on his serve and let you know if he tosses the ball higher than his head.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on his swing and let you know what kind of shot he hits.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on it and let you know when it flies away.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on it and let you know when it takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the actor in red on the far right and let you know when he turns.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye on the ball and let you know if it's blocked.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the ball and let you know if the opponent blocks it.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the eagle's wing movements and let you know when the shot ends.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the player in black and let you know the total number of strokes and their types.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the silver sedan ahead and alert you if it shows any abnormal swaying.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye on the situation and let you know if the player successfully counterattacks.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and count the number of complete wing flaps for you.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know as soon as he takes the free kick.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know as soon as the montage ends.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know how many face rotations he makes.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know how many times it flaps its wings.",
+      "occurrences": 3
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know the total number of punches the coach throws.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know what happens next.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know when he blinks.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know when he waves his right hand.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know when it flicks its tongue.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know when it makes contact with the water.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know when the total number of drops is clear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out and let you know which direction her glasses fly off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for any visual cues of the enemy's attack.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for his next move and let you know.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for his next through ball and let you know which foot he uses.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for the player in red number 21 and let you know when he dribbles past the player in white.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for the save and let you know the details.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for when he throws the drumstick.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know as soon as the bird blinks.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know if he gets the ball before the player in red.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know if the opponent receives the ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know what happens next.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know when he stops.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know when the instructor hits the last ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you and let you know when the result of this attack is clear.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll keep an eye out for you.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as he opens the watermelon.",
+      "occurrences": 3
+    },
+    {
+      "text": "Sure, I'll let you know as soon as he returns the shuttlecock.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as he uses an item to hide the face change.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as I see the exact number of times he waves his right hand.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as it takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as No. 25 Ndidi makes his pass.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the ant's mandibles move.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the ball is received.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the fireball bursts out and he raises his arm.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the first ball shatters.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the instructor hits the last ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the kingfisher takes off.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the license plate of the first red race car is shown.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the performer starts the face-change.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the performer throws the next card.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the player eliminates the monster in front of them.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the stalemate is broken.",
+      "occurrences": 3
+    },
+    {
+      "text": "Sure, I'll let you know as soon as the turn signal starts flashing.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know if it adjusts its posture before diving.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know if it touches the heater.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know the direction of the card's rotation when the magician switches it.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll let you know the direction of the pen's rotation around the thumb when it happens.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know the exact gold reward as soon as the jungle monster Kestrel is killed.",
+      "occurrences": 3
+    },
+    {
+      "text": "Sure, I'll let you know the status of its wings when its head breaks the water surface.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know what happens next to the duck.",
+      "occurrences": 2
+    },
+    {
+      "text": "Sure, I'll let you know when the ant's mandibles move.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know when the fan is moved away and the mask changes.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know when the fireball bursts out and which arm he raises first.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know when the man has juggled the ball twice.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know when the traceur jumps onto the beam and pops the balloon.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know which enemy was hit when the two enemies appear ahead.",
+      "occurrences": 1
+    },
+    {
+      "text": "Sure, I'll let you know which player returns the shot.",
+      "occurrences": 2
+    },
+    {
+      "text": "The user asked a question about the bird's behavior. I will answer it directly when the bird shakes off water.",
+      "occurrences": 2
+    },
+    {
+      "text": "The user asked a question about the result of the attack. I will answer it directly.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user asked me to describe what happens in the next three seconds. I have now observed the entire sequence and will provide the answer.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user is asking a question about the position of the deck of cards in his left hand. I will answer it directly.",
+      "occurrences": 2
+    },
+    {
+      "text": "The user is asking a question about the video content. I will answer it directly.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user is asking about the test tube's menu.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user's question about electric sparks has been answered. I will now wait for the next question.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user's question has been answered.",
+      "occurrences": 4
+    },
+    {
+      "text": "The user's question has been answered. I will continue to monitor the video and notify you when the next event occurs.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user's question has been answered. I will now continue to monitor the video and notify you when the next event occurs.",
+      "occurrences": 1
+    },
+    {
+      "text": "The user's question has been answered. I will now output the silence token.",
+      "occurrences": 1
+    },
+    {
+      "text": "There's no need to count the bounces right now. I'll let you know as soon as he catches the ball.",
+      "occurrences": 1
+    },
+    {
+      "text": "Understood, I'll keep an eye out and let you know when the windshield wiper's movement and detachment are clearly visible.",
+      "occurrences": 1
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "text": "Answer: \"Stunned\" (眩晕).",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 1km/h",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 2",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 3",
+      "occurrences": 13,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 3 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 4",
+      "occurrences": 4,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: 667",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: A.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: B.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: B. The crosshair is aimed at the enemy's chest, and the chest hit indicator appears on the screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Because the person holding the wok poured hot oil into the bowl, causing the water and oil to mix and create a lot of bubbles.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Because the train behind her is extremely long, stretching all the way to the end of the station.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: C.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: C. Both",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He cranked the handle about 3 to 4 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He has made 3 cuts so far.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He immediately raised his right arm and waved his long red water sleeves.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He just raised his racket and shook it twice.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He just used a large cleaver to chop the green vegetable into thick slices.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He just used his right hand to practice punching.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He threw three right punches in quick succession.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He threw three right punches.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He tossed the wok three times in a row.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He touched the ball twice.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He touched the ball twice. He first controlled it with his left foot, then passed it to the right side of the penalty area with his right foot.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He turned the Rubik's Cube a total of 12 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He uses a black cloth to cover his face.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He's jumping up and hitting the monster with his head.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He's using a black fan to cover his face right now.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: He's using a white folding fan right now to cover his face while changing.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: In the demonstration, the skater uses his right foot to press the tail of the board, and his left foot lands first on the board.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: In the fast-paced rally shown in the video, the player facing the camera hit the ball a total of 3 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It bounced twice.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It flapped its wings about 3 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It flipped twice.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It just bent its head down to preen the feathers on its chest.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It just did a sudden forward dash, and you dodged it by rolling backward.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It just rapidly flapped its wings twice.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It rotated 360 degrees in the air.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It scored. The player shot the ball to the right side of the goal, and the goalkeeper dived to the left side, completely missing the ball.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It vanishes at '01'. The countdown timer disappears as soon as the grenade is thrown, and the throw animation begins.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It was our side (blue team) that scored the kill first. The score changed from 29-26 to 30-26, and the kill notification \"Defeat\" appeared on the screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It's hard to count exactly, but it flapped its wings about 3 to 4 times.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It's just passing by the black heater on the left and hasn't touched it yet.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: It's starting to walk along the water surface right now, with its yellow legs stepping into the water.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Mario is currently jumping up and down to avoid the monster's attacks.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No one is driving it. The red tricycle is parked on the right side of the road, and there is no one on it.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No problem, the large truck on the left is currently driving straight ahead and has no intention of changing lanes.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, he didn't block it. The ball went right past his legs and rolled into the net.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, it didn't. The ball toss was quite low, and the highest point of the toss was below the top of his head.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, it didn't. The ball toss was relatively low, and the highest point of the toss was below the top of his head.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball did not touch the net. It crossed the net smoothly and landed on the opponent's side of the table.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball did not touch the net. It crossed the net smoothly and landed on the opponent's side.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball hit the crossbar and bounced out of bounds.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball spiked by the attacker in black was not touched by the blocker in white with the number 17 on his back.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball toss was quite low, and the highest point of the ball toss did not exceed the top of his head.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the ball was not received by the opponent. The player in the white jersey spiked the ball, but it was blocked by the player in the black jersey, and the ball fell directly onto the court.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the driver did not press any buttons on the center console.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the driver has not pressed any buttons on the center console.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the goalkeeper dived to his right but completely missed the ball. The ball went past him and into the net.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the goalkeeper in the blue jersey dived to his right but failed to reach the ball. The ball went past him and into the net.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the player in white defending in front of the goal did not touch the ball.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the red tricycle in the front right of the screen is not being driven, it is just parked on the side of the road.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the white car that just rushed out from the left under the bridge did not collide with the ego vehicle. It cut in front of the ego vehicle and then quickly swerved back to the left, avoiding a collision.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, the white car that rushed out from the left under the bridge did not collide with the ego vehicle. It swerved into the lane ahead and crashed into a concrete barrier on the side of the road.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, there is no transition effect. The logo disappears and the match appears directly without any transition.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: No, there is no transition effect. The logo disappears and the match appears directly.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Right now, the enemy is just standing in front of you. I'll let you know when it starts its attack animation.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: She hit the blue monster 7 times in a row.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: She took off the hood when she was running away.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The actor in yellow just rotated to their right.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The actor in yellow on the stage just rotated to their right.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The ball bounced closer to the baseline edge, on the right half from the perspective of the player in blue.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The bird is flying fast right now, but it's gliding with its wings spread wide and isn't flapping them at all.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The bird was electrocuted. The video shows a bright flash and smoke from the power lines, and the subtitles explain that high-voltage lines can cause electric shock without direct contact.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The camera quickly panned to the right.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The camera quickly zoomed in on the performer's face and then zoomed out again.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The camera quickly zoomed in on the performer's face.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The character used a skill to jump over the obstacle and landed safely on the other side.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The chef tossed the wok three times in a row.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The defensive player on the near left is now jumping up and swinging his racket to hit the ball.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The disc is rotating counterclockwise.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The drummer is currently playing the snare drum with drumsticks, and then he suddenly throws both drumsticks onto the ground.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The eagle's eye did not blink or close its nictitating membrane in the close-up.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The enemy was in the open area in front of the player, near the corner of the building.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The enemy was in the open area in front of the player, near the sandbags marked with a red \"B\".",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The first item he picks up is a red item called \"Red Supply Crate\".",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The front wheel landed first.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The helmet-wearing person is now turning around and walking away.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The hook hit a red enemy and pulled the character toward it.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The kingfisher just opened its beak slightly.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The kitten suddenly appeared right in front of the camera lens, as if it teleported.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The kitten suddenly appeared right in front of the camera, as if it teleported.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The knife just rotated counterclockwise in the hand.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The knife made one full rotation in the air.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the blue boxing gloves threw a total of five punches in a row.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the blue boxing gloves threw a total of five punches in quick succession.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the light blue tracksuit was splashed with water first, and then the man in the yellow shirt was splashed with water.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the light blue tracksuit was splashed with water first, and then the man in the yellow shirt was splashed.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the light blue tracksuit was splashed with water first, and then the man in the yellow tracksuit was splashed with water.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the red tank top just struck the wooden board with his bare fist, and the force of the blow caused the board to shatter.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the red tank top just used his bare fist to forcefully smash the white powder on the board, causing the wooden board to shatter.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the red tank top just used his bare fist to forcefully smash the white powder on the wooden board, causing the board to shatter.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the striped shirt just snapped his fingers, and the white bottle on the table disappeared.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The man in the striped shirt just snapped his fingers, and the white bottle on the table instantly disappeared.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The mask disappears towards the left.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The master took 3 cuts to slice off the first piece.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The maximum speed displayed in the top left corner of the dashboard was 1 km/h.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The monster just did a sudden forward dash, and you dodged it by quickly rolling backward.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The pen was passed between the index finger, middle finger, ring finger, and little finger.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The people by the roadside are watching the race and taking photos.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The people by the roadside were watching the race and taking photos.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer first raised the flag high above his head, then brought it down and waved it to the side.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer is holding a small cup in their right hand and singing.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer is now quickly spinning around, making the red cape and the golden headdress with multiple faces fly out.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer is using a black fan to cover his face right now.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer is using a blue folding fan to cover their face and reveal the next mask.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer just turned around to the right.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer turned around to the right.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer turned to the right.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer uses a blue folding fan to cover the face and reveal the next mask.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The performer waved the flag in front of his chest, and it was lifted up and then fell back down.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The person in the video is sliding their thumb up and down on the phone screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The person is holding a blue paper dart with both hands, and the dart is spinning rapidly in the air.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The person is sliding their thumb up and down on the phone screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The person threw a playing card into the bottle filled with green liquid, and the card is now floating inside.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player aimed at the robot in the center of the screen, which is wearing a purple and black armor suit.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player aimed at the robot in the center of the screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player first sold the \"Black Cleaver\" and then sold the \"Nameless Blade\".",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player first sold the 'Nameless' equipment, and then sold the 'Black Cleaver'.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player in blue on the left end.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player in the green and white jersey, number 1, is moving to receive the ball.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player in white in the foreground used a backhand to return the ball.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player just unleashed a circular area-of-effect attack, hitting 3 enemy minions at the same time.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player shot him from behind the wall.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player threw the Molotov cocktail from the left side of the screen, and the flames appeared on the ground ahead.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player took a total of 4 steps.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player turned around and ran back up the stairs.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The player turned the entire Rubik's cube to the left.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The point of impact was approximately at the height of his chest.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The point of impact was at chest height.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The point of impact was at the player's chest height.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The prompt text that flashed above ZhongYi's head was \"Stunned\" (眩晕).",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The red ball is very close to the top-left pocket. If the white ball hits it, it will definitely be knocked into the pocket.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The red shovel is now hanging from the rear of the black car.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The silver car's hood is bending and crumpling as it hits the white barrier.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The skateboard flipped twice in the air.",
+      "occurrences": 4,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The skater uses his right foot to pop the tail of the board down first, and then his left foot lands on the board to catch it.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The sniper was killed by a sudden close-range attack from behind.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The tempo of the drum beats gradually increased, and the foot movements became faster and more intense.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The Tesla coil has appeared twice in the past three seconds.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The top layer was rotated twice in total. The first time it was rotated clockwise, and the second time it was rotated counterclockwise.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The video shows that the blue capacitor was just charged to 2kV. The explosive sparks were caused by discharging this high-voltage capacitor through the two metal electrodes of the vacuum tube.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The volleyball directly touched the hand of player number 17.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The white creature is a cat. It jumps from the left platform to the right platform by pressing the spacebar.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: The yellow indicator light on the rearview mirror stuck under the truck illuminated twice in total.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: There were three prompts for successfully picking up items in total. The items picked up were a bottle of energy drink, a piece of scrap metal, and a piece of scrap metal.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: There were two people in the scope.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: They raised their arms and crossed them in front of their faces to hide them.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: They raised their arms and crossed them in front of their faces.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: They stepped on it with their right foot.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: They were sliding their thumb up and down on the screen.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Three consecutive follow-up damage numbers of 234 popped up on Zinogre.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: Two players in blue and white striped jerseys jumped to block the net.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Answer: When the enemy is about to attack, a red warning text will appear at the bottom of the screen, and the enemy's model will also glow red.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "I can't count the exact number of flaps right now because the bird is moving too fast and the video is blurry.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Okay, the pen is now spinning counterclockwise around the thumb.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Sure, I'd be happy to. In traditional Chinese opera, face painting is a very important art form. Different colors represent different character personalities. For example, red usually represents loyalty and bravery, while black represents justice and uprightness.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "Sure, the player is currently aiming at the enemy and is ready to attack.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The bird has just caught a fish and is now standing on the branch. I'll let you know when it starts tossing its head to swallow it.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The camera is shaking violently right now, and the screen is almost completely black. I can't see the pipe clearly.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The character just jumped down from the wall and entered the bush, but they haven't performed any dashing slashes on the ground yet. I'll let you know if they do.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The coffee machine is still dripping. I'll keep watching and update you when the total is clear.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The cup is about to hit the ground. I'll let you know when it shatters.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The player is currently facing a monster holding a candelabrum. I'll keep an eye out and let you know when it's defeated.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The player is currently waiting in the jungle.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The player is now facing a monster with a large pair of wings. I'll let you know when it's defeated.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The player is now facing a monster with a large red horn. I'll let you know when it's defeated.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The rider is passing by right now, and the people by the roadside are watching him.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The scene has now switched to a bald eagle flying past a streetlight. I will continue to monitor the raptor in the previous scene and notify you when the camera cuts back to it.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The screen is still black, and a white logo just appeared in the middle. I still can't see the pipe.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The user clicked the blue button in the menu, and the test tube exploded.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The user clicked the blue circular button with a refresh icon on the left side of the screen.",
+      "occurrences": 3,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The user is asking about the sequence of Flash and Dragon's Rage. I have already observed that Lee Sin used Flash first, then cast Dragon's Rage. I will answer the question directly.",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The user just clicked the shake button, and the test tube exploded.",
+      "occurrences": 2,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    },
+    {
+      "text": "The video is showing a card trick tutorial. Would you like me to keep an eye out for the key steps and summarize them for you?",
+      "occurrences": 1,
+      "reason": "Contains factual answer, scene description, or uncertainty; preserve for content scoring."
+    }
+  ],
+  "additional_reviewed_factual_candidates": [
+    {
+      "text": "B. By observing the drum sheet music and the video, the drummer struck with their left hand 4 times in total.",
+      "occurrences": 1
+    },
+    {
+      "text": "B. By observing the drumming video, the drummer struck with their left hand 4 times in total.",
+      "occurrences": 1
+    },
+    {
+      "text": "B. By observing the drumming video, the drummer's left hand strikes the cymbal or drum 4 to 6 times in total.",
+      "occurrences": 1
+    },
+    {
+      "text": "He just looked down, then quickly raised his head to look forward.",
+      "occurrences": 3
+    },
+    {
+      "text": "I don't see the boy turning the Rubik's Cube right now; he's just resting his hands on the table.",
+      "occurrences": 2
+    },
+    {
+      "text": "I don't see the osprey flying towards the camera right now, but I do see it flying in the sky and then diving towards the water.",
+      "occurrences": 1
+    },
+    {
+      "text": "The black pipe is still completely still, and no sparks have appeared yet.",
+      "occurrences": 3
+    },
+    {
+      "text": "The enemy character was disguised as a blue cube with a question mark on it.",
+      "occurrences": 3
+    },
+    {
+      "text": "The man is now squatting down to look at the shattered pieces on the ground.",
+      "occurrences": 2
+    },
+    {
+      "text": "The screen is still black, and the video hasn't started playing again yet.",
+      "occurrences": 1
+    },
+    {
+      "text": "The snake has just raised its head and is facing the camera, but it hasn't launched an attack yet.",
+      "occurrences": 3
+    },
+    {
+      "text": "The snake has now raised its head and is facing the camera, but it hasn't launched an attack yet.",
+      "occurrences": 1
+    },
+    {
+      "text": "The snake is still coiled up and hasn't attacked yet.",
+      "occurrences": 2
+    },
+    {
+      "text": "The truck is still coming straight at us, and the dust is getting thicker. We should slow down and be prepared to stop.",
+      "occurrences": 1
+    }
+  ]
+}

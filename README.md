@@ -72,8 +72,10 @@ The release provides these model entry points:
 | --- | --- | --- | --- |
 | Qwen3-VL-8B | `scripts/deploy_qwen3_vl_8b.sh` | `scripts/eval_qwen3_vl_8b.sh` | Prompted streaming |
 | AURA | `scripts/deploy_aura.sh` | `scripts/eval_aura.sh` | Native AURA |
+| AURAv2 (Qwen3.5) | `scripts/deploy_aurav2.sh` | `scripts/eval_aurav2.sh` | Native AURA; dedicated acknowledgement config |
 | JoyAI-VL-Interaction | `scripts/deploy_joyai_vl_interaction.sh` | `scripts/eval_joyai_vl_interaction.sh` | Native JoyAI |
-| MOSS-VL-Realtime | `scripts/deploy_moss_vl_realtime.sh` | `scripts/eval_moss_vl_realtime.sh` | Native MOSS-VL |
+| MOSS-VL-Realtime | `scripts/deploy_moss_vl_realtime.sh` | `scripts/eval_moss_vl_realtime.sh` | Original native MOSS-VL |
+| MOSS-VL-Realtime framewise | `scripts/deploy_moss_vl_realtime_framewise.sh` | `scripts/eval_moss_vl_realtime_framewise.sh` | Opt-in per-input generated-silence gates |
 | VideoChat3-4B | `scripts/deploy_videochat3_4b.sh` | `scripts/eval_videochat3_4b.sh` | Native VideoChat3 |
 
 Set `MODEL_PATH` to a downloaded checkpoint or its model repository identifier. For example:
@@ -88,6 +90,26 @@ bash scripts/deploy_qwen3_vl_8b.sh
 This starts eight independent model replicas on GPUs 0 through 7 and ports 8000 through 8007. It does not split one model across eight GPUs; each replica must fit on one GPU. Keep `NUM_GPUS`, `BASE_PORT`, and `HOST` consistent between serving and evaluation. Wait for the deployment health checks to succeed before evaluating.
 
 For a single-GPU run, set `NUM_GPUS=1`. The existing deployment entry points default to one GPU. Server logs are written to `logs/servers/`.
+
+## Updated native interfaces
+
+The optional MOSS framewise adapter is adapted from the [OpenMoss team's fork](https://github.com/ShacklesLay/FastBench/tree/959a4779905257a6314bfad1ab056937183035a2/moss_native). It processes historical frames continuously and waits for fresh generated silence after each input. FastBench retains its chunk-end output timestamps and strict task-specific deadlines. Questions precede the last legal frame of the current chunk; the question-time boundary frame is excluded. These choices differ from the fork's input-event timestamps and question scheduling.
+
+AURAv2 uses the Qwen3.5 architecture and the original native AURA prompt, with an isolated acknowledgement-placeholder configuration. It needs a separate environment with `requirements-aurav2.txt` installed after the base requirements.
+
+To replace services and verify the newly loaded checkpoint before evaluation:
+
+```bash
+export MODEL_PATH=/path/to/MOSS-VL-Realtime
+export NUM_GPUS=8 BASE_PORT=8000
+bash scripts/restart_hf_servers_clean.sh moss
+VIDEO_ROOT="$PWD" NUM_WORKERS=8 NUM_SCORERS=20 \
+bash scripts/eval_moss_vl_realtime_framewise.sh --run-id moss-framewise
+```
+
+For AURAv2, select its environment and checkpoint, then substitute `aurav2` and `scripts/eval_aurav2.sh`. Stop the selected services with `NUM_GPUS=8 BASE_PORT=8000 bash scripts/stop_hf_servers_clean.sh`. Run stop/restart between evaluations.
+
+See [native interface details](docs/native_interfaces.md) for the input-order example, scoring semantics, dependencies, configuration limits and deployment checks. Existing baseline entry points remain available. This release adds protocol support; it does not replace the manuscript scores with the fork's split-run aggregate.
 
 ## Evaluate baselines
 

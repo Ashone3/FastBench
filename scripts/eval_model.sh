@@ -18,7 +18,11 @@ NUM_WORKERS="${NUM_WORKERS:-$NUM_GPUS}"
 NUM_SCORERS="${NUM_SCORERS:-$NUM_WORKERS}"
 VIDEO_ROOT="${VIDEO_ROOT:-${PUBLIC_ROOT}/videos}"
 OUTPUT_DIR="${OUTPUT_DIR:-${PUBLIC_ROOT}/runs}"
-CONFIG_PATH="${CONFIG_PATH:-${PUBLIC_ROOT}/config.yaml}"
+if [[ "$MODEL_FAMILY" == aurav2 ]]; then
+    CONFIG_PATH="${CONFIG_PATH:-${PUBLIC_ROOT}/configs/aurav2.yaml}"
+else
+    CONFIG_PATH="${CONFIG_PATH:-${PUBLIC_ROOT}/config.yaml}"
+fi
 RUN_ID="${RUN_ID:-${MODEL_FAMILY}-$(date +%Y%m%d_%H%M%S)}"
 MAX_SAMPLES=0
 TIME_WINDOW=4.0
@@ -32,13 +36,18 @@ FOCUS_WINDOW_SECONDS=0
 PROACTIVE_FOCUS=0
 FULL_VIDEO_HIGH_FPS=0
 ALLOW_EARLY_CORRECT=0
+DRY_RUN=0
+EVAL_MODEL_NAME="$MODEL_FAMILY"
+if [[ "$MODEL_FAMILY" == aurav2 ]]; then
+    EVAL_MODEL_NAME=aura
+fi
 
 usage() {
     cat <<USAGE
 Usage: bash scripts/eval_model.sh [model_family] [options]
 
 Model families:
-  qwen3_vl, aura, joyai_vl_interaction, moss_vl_realtime, videochat3_4b
+  qwen3_vl, aura, aurav2, joyai_vl_interaction, moss_vl_realtime, videochat3_4b
 
 Options:
   --model-path PATH              Model id or local checkpoint path
@@ -62,6 +71,7 @@ Options:
   --resume                       Resume an existing run
   --skip-scoring                 Run inference without a judge API
   --disable-llm-judge            Disable LLM judging in the evaluator
+  --dry-run                      Print the command without running it
   -h, --help                     Show this help
 
 The judge endpoint and key are supplied with STREAMEVAL_JUDGER_* environment variables.
@@ -91,6 +101,7 @@ while [[ $# -gt 0 ]]; do
         --resume) RESUME=1; shift ;;
         --skip-scoring) SKIP_SCORING=1; shift ;;
         --disable-llm-judge) DISABLE_LLM_JUDGE=1; shift ;;
+        --dry-run) DRY_RUN=1; shift ;;
         -h|--help) usage; exit 0 ;;
         *) echo "[ERROR] Unknown argument: $1" >&2; usage >&2; exit 2 ;;
     esac
@@ -121,7 +132,7 @@ export "STREAMEVAL_${MODEL_ENV_PREFIX}_MODEL=${MODEL_PATH}"
 args=(
     "${PUBLIC_ROOT}/run_stream_eval_parallel.py"
     --config "$CONFIG_PATH"
-    --model-name "$MODEL_FAMILY"
+    --model-name "$EVAL_MODEL_NAME"
     --video-root "$VIDEO_ROOT"
     --output-dir "$OUTPUT_DIR"
     --run-id "$RUN_ID"
@@ -142,6 +153,23 @@ if [[ "$PROACTIVE_FOCUS" -eq 1 ]]; then args+=(--proactive-focus); fi
 if [[ "$FULL_VIDEO_HIGH_FPS" -eq 1 ]]; then args+=(--full-video-high-fps 1); fi
 if [[ "$ALLOW_EARLY_CORRECT" -eq 1 ]]; then args+=(--allow-early-correct); fi
 if [[ -n "$NATIVE_FLAG" ]]; then args+=("$NATIVE_FLAG"); fi
+
+# EXTRA_ARGS uses shell-style quoting but is never evaluated as shell code.
+if [[ -n "${EXTRA_ARGS:-}" ]]; then
+    extra_file="$(mktemp)"
+    if ! python -c 'import os,shlex,sys; sys.stdout.buffer.write(b"\0".join(x.encode() for x in shlex.split(os.environ["EXTRA_ARGS"])) + b"\0")' > "$extra_file"; then
+        rm -f "$extra_file"
+        exit 2
+    fi
+    mapfile -d '' -t extra_args < "$extra_file"
+    rm -f "$extra_file"
+    args+=("${extra_args[@]}")
+fi
+if [[ "$DRY_RUN" -eq 1 ]]; then
+    printf '%q ' python "${args[@]}"
+    printf '\n'
+    exit 0
+fi
 
 echo "[INFO] Evaluating $MODEL_FAMILY with $NUM_WORKERS worker(s)."
 python "${args[@]}"
